@@ -23,6 +23,7 @@ git config --global color.branch auto
 
 - Add the ssh key onto the machine
 
+and then do a...
 ssh-add
 
 
