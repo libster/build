@@ -21,4 +21,20 @@ git config --global color.status auto
 git config --global color.branch auto
 
 
-- Add the ssh key
+- Add the ssh key onto the machine
+
+ssh-add
+
+
+- Test ssh
+ssh -T git@github.com
+
+
+- Clone this build project
+
+git clone git@github.com:libster/build.git
+
+
+- Execute build
+
+./run_puppet.sh
