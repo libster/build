@@ -1,0 +1,24 @@
+- Install Ubuntu
+
+
+
+- Install puppet
+
+sudo apt-get install puppet
+
+
+- Install git
+
+sudo apt-get install git-core
+
+
+- Configure git
+
+git config --global user.name "My Name"
+git config --global user.email me@mydomain.com
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+
+
+- Add the ssh key
