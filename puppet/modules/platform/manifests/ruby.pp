@@ -19,4 +19,6 @@ class platform::ruby() {
     ensure => link,
     target => "/usr/bin/ruby1.9.1"
   }
+
+  #exec { "/usr/bin/gem install rails" : }
 }
