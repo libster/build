@@ -1,6 +1,7 @@
 #!/bin/bash
 
 host_type=$1
+noop=$2
 
 function exec_cmd() {
   cmd=$1
@@ -30,7 +31,7 @@ host_type_puppet_manifest="${puppet_dir}/${host_type}.pp"
 
 if [ -f "${host_type_puppet_manifest}" ]
 then
-  exec_cmd_as_root "/usr/bin/puppet apply --verbose --debug --modulepath \"${module_dir}\" ${host_type_puppet_manifest}"
+  exec_cmd_as_root "/usr/bin/puppet apply --verbose ${noop} --debug --modulepath \"${module_dir}\" ${host_type_puppet_manifest}"
 else
   echo "No manifest found for ${host_type} (${host_type_puppet_manifest})"
 fi
