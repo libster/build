@@ -1,0 +1,58 @@
+# ruby
+
+require 'fileutils'
+
+def mkdirs(path, dirs)
+	dirs.each do |dir|
+	    target = path + dir
+		FileUtils.mkpath(target)
+		puts ">>> created #{target}"
+	end
+end
+
+def create_proj(proj, path) 
+	puts "Creating Rails project: #{proj} in #{path}"
+
+	@path = path + "/" + proj
+
+	if Dir.exists?(@path)
+		puts "!! Folder already exists, #{@path}"
+		exit
+	end
+	
+	Dir.mkdir(@path)
+	puts ">> created #{@path}"
+		
+    mkdirs(@path, ["/app/controllers", "/app/helpers/", "/app/models", "/app/views/layouts",
+                   "/config/environments", "/config/initializers", "/config/locales", 
+                   "/db", "/lib", "/lib/tasks", 
+                   "/public/javascripts", "/public/stylesheets/",
+                   "/script", "/spec", "/vendor"])
+    puts ">> sub-dirs created"
+end
+
+def copy_files()
+	puts "creating core files"	
+	
+	FileUtils.cp "railser-files/Gemfile", @path
+	
+	# scripts
+	FileUtils.cp "railser-files/bundle_install", @path+"/script"
+	File.chmod(0700, @path+"/script/bundle_install")
+	FileUtils.cp "railser-files/rails", @path+"/script"
+	File.chmod(0700, @path+"/script/rails")
+	
+	puts ">> created core files"
+end
+
+# /---------------------------------------------------------------------------\
+
+if (ARGV.empty? or (ARGV.length != 2))
+	puts "usage: railser <project_name> <path_from_root>"
+	puts "E.g. railser demo /home/rob/workspace" 
+	exit
+end
+
+create_proj(ARGV[0], ARGV[1])
+
+copy_files()

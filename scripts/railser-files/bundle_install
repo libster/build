@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [[ $1 == "--local" ]]
+then
+  local_mode=$1
+fi
+
+ruby_cmd=/usr/bin/ruby1.9.1
+bundle_cmd="${ruby_cmd} -S bundle ${local_mode} "
+
+rails_root=$(readlink -f $(dirname $0)/..)
+rel_bundle_dir=vendor/bundle
+binstubs_dir=${rails_root}/bin
+
+# run commands from the rails_root
+cd ${rails_root}
+
+# gem processing
+echo ${bundle_cmd} install --no-deployment --path ${rel_bundle_dir} --binstubs=${binstubs_dir}
+${bundle_cmd} install --no-deployment --path ${rel_bundle_dir} --binstubs=${binstubs_dir}
+
+echo ${bundle_cmd} package
+${bundle_cmd} package
+
