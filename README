@@ -1,0 +1,44 @@
+== Welcome to the build project
+
+This project helps setup and configure platforms via puppet
+
+
+== Development, Getting Started
+1) Install UBuntu
+3) Install git using, sudo apt-get install git-core
+4) Add your SSH key to the OS and test it using, ssh -T git@github.com
+5) Clone this build project, git clone git@github.com:libster/build.git
+6) Edit and make changes as normal
+
+== Testing this project
+1) Assuming you have done the above
+2) Download and install VirtualBox from https://www.virtualbox.org/wiki/Downloads and use version 4.1.14
+3) Download and install Vagrant from http://vagrantup.com/
+4) Vagrant setup steps:
+    - cd /path/to/project
+    - vagrant up
+    - vagrant ssh
+    - cd /vagrant
+5) Your now inside the VM, install puppet (if this is the first time in the VM) using, sudo apt-get install puppet
+6) Execute your build to test using (where file is your puupet script) ./run_puppet [file]
+7) You can exit from the VM by typing, exit
+8) To stop the vagrant VM type, vagrant halt
+
+* you don't have to exit or halt each time you do a script change, the VM works in tandem with your project folder.
+
+== Vagrant tips
+vagrant up
+  Starts the VM
+
+vagrant ssh
+  Starts an ssh session with the VM, use cd /vagrant to get to your project folder
+
+vagrant status
+  Shows the current status of the VM, eg running
+ 
+vagrant box list
+  Shows the list of boxes (VM's) available for use with vagrant
+ 
+vagrant destroy
+  Destroys the VM, deletes it from VirtualBox's list. Useful if you want to restart with a fresh environment, simply use the vagrant up command to create a new environment (there will be a small wait while VirutalBox recreates the VM)
+

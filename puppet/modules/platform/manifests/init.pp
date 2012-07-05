@@ -2,18 +2,22 @@ class platform() {
 
   class { 'platform::ruby' : }
 
-  # git configuration
+  package {'curl':
+  	ensure => installed;
+  }
+
+  package { 'sshd':
+  	ensure => present,
+  	name   => 'openssh-server',
+  }
+
+# git configuration
+  exec { '/usr/bin/git config --global user.name "Walt Disney"' : }
+  
+  exec { '/usr/bin/git config --global user.email me@mydomain.com' : }
+
   exec { '/usr/bin/git config --global color.ui auto' :
     unless => '/usr/bin/git config --global --get color.ui'
-  }
-  exec { '/usr/bin/git config --global color.diff auto' :
-    unless => '/usr/bin/git config --global --get color.diff'
-  }
-  exec { '/usr/bin/git config --global color.status auto' :
-    unless => '/usr/bin/git config --global --get color.status'
-  }
-  exec { '/usr/bin/git config --global color.branch auto' :
-    unless => '/usr/bin/git config --global --get color.status'
   }
   exec { '/usr/bin/git config --global alias.st status' :
     unless => '/usr/bin/git config --global --get alias.st'
