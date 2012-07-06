@@ -1,10 +1,10 @@
-class apache::service {
+class squid::service {
 	
-	service { 'apache2' :
+	service { 'squid3' :
 		ensure => running,
 		hasstatus => true,
 		hasrestart => true,
 		enable => true,
-		require => Class['apache::install'],
+		require => Class['squid::install'],
 	}
 }
