@@ -1,1 +1,3 @@
 class { 'platform' : }
+
+include apache
