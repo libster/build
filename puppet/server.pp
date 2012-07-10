@@ -1,7 +1,9 @@
-include apt
+#include apt
 
-#include platform
+include platform
 
 include apache
 
 include squid
+
+include dansguardian

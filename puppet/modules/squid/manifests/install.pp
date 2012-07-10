@@ -11,6 +11,4 @@ class squid::install {
 	  source  => 'puppet:///modules/squid/squid.conf',
 	  require => Package['squid'],
 	}
-
-
 }
