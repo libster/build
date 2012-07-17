@@ -17,5 +17,6 @@ class dansguardian::install {
 	  group   => 'root',
 	  mode    => '0666',
 	  source  => 'puppet:///modules/dansguardian/access.log',
+	  require => Package['dansguardian']
 	}
 }

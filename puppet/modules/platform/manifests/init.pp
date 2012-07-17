@@ -1,5 +1,4 @@
 class platform() {
 
-  include platform::ruby, platform::git, platform::services
-
+  include platform::git, platform::services, platform::installrvm
 }

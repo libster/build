@@ -1,8 +1,8 @@
 class platform::services {
 	
-  package {'curl':
-  	ensure => installed;
-  }
+  #package {'curl':
+  #	ensure => installed;
+  #}
 
   package { 'sshd':
   	ensure => present,
