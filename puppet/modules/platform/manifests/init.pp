@@ -1,4 +1,6 @@
-class platform() {
+class platform {
 
-  include platform::git, platform::services, platform::installrvm
+  include platform::git
+  include platform::services
+  include platform::installrvm
 }

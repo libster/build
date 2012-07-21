@@ -1,14 +1,29 @@
 Welcome to my build project
 ===============================
 
-This project sets up and configures a server/machine via puppet (its mainly built for private and includes packages and services for me, but may be useful to others).
+This project sets up and configures a server or dev system via puppet (its mainly built for private and includes packages and services for me, but may be useful to others).
 
-Running the puppet scripts for a server is split in two
- * Setting up the platform, is the server.pp script
- * Optional, installing Ruby 1.9.3 and Rails 3.1, using the installruby.pp (thanks to Brandon Turner, https://github.com/blt04/puppet-rvm)
+# Server System Setup
+Running the puppet scripts for a server is a simple case of typing the following command from the root of this prohect, $./run_puppet.sh server 
 
-    $ ./run_puppet.sh server
-    $ ./run_puppet.sh installruby
+# Developer System Setup
+For setting up a dev system, simple execute the following command from the root of the project, $./run_puppet.sh dev
+
+# Ruby
+Installing Ruby 1.9.3 and Rails 3.1 on a system, is a matter of running the ruby.pp (thanks to Brandon Turner, https://github.com/blt04/puppet-rvm), $ ./run_puppet.sh ruby
+
+Note: As part of the server/dev script, RVM is installed but Ruby isn't so bash needs to be refreshed first. If installing Ruby after executing the server or dev scripts, use the command below to refresh the shell.
+
+    $ source ~/.bashrc
+
+Once Ruby is installed you need to set RVM to use it
+
+    $ rvm use 1.9.3
+
+or to default it
+
+    $ rvm use 1.9.3 --default
+
 
 ## Development of this project & Getting Started
  * Install Ubuntu (12.04)

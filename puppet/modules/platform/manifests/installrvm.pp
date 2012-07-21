@@ -1,11 +1,13 @@
 class platform::installrvm {
 
+	$user_array = split($users, ',')
+	
   	include rvm
-  	rvm::system_user { vagrant: ; }
 
-	#exec { 'reload session' :
-	    #command => 'source ~/.bashrc',
-	    #path    => '/bin',
-	    #require => File['/etc/dansguardian/lists/bigblacklist.tar.gz'],
-	 #}
+  	define add_rvm_user() {
+		rvm::system_user { $name : ;}
+		#notify { $name : ;}
+  	}
+
+	add_rvm_user { $user_array : ;}
 }

@@ -1,1 +1,1 @@
-class { 'platform' : } 
+include platform
