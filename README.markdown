@@ -30,6 +30,7 @@ or to default it
  * Install git using, sudo apt-get install git-core
  * Add your SSH key to the OS and test it using, ssh -T git@github.com
  * Clone this build project, git clone git@github.com:libster/build.git
+ * NOTE: This project has submodules for rvm so you will also need to do a 'git submodule init' and 'git submodule update' 
  * Edit and make changes as normal to the scripts (see below on how to best test them)
 
 ## Testing this project
