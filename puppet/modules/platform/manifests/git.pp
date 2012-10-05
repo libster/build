@@ -5,7 +5,7 @@ class platform::git {
   }
 
 	# git configuration
-  exec { '/usr/bin/git config --global user.name "Walt Disney"' : 
+  exec { '/usr/bin/git config --global user.name "robbie"' : 
     unless => '/usr/bin/git config --global --get user.name',    
     require => Package['git']
   }

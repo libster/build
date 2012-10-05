@@ -68,3 +68,5 @@ vagrant box list
 vagrant destroy
   Destroys the VM, deletes it from VirtualBox's list. Useful if you want to restart with a fresh environment, simply use the vagrant up command to create a new environment (there will be a small wait while VirutalBox recreates the VM)
 
+## TODO
+ * Write rspec tests for testing access to blocked sites
