@@ -1,4 +1,4 @@
-Welcome to my build project
+Welcome to my build project.
 ===============================
 
 This project sets up and configures a server or dev system via puppet (its mainly built for private and includes packages and services for me, but may be useful to others).
